@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:4180:4180"
+    volumes:
+      - lab-data:/data
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4180
+      DB_PATH: /data/lab.sqlite
+    restart: unless-stopped
+volumes:
+  lab-data:

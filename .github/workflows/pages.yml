@@ -1,0 +1,52 @@
+name: Verify full stack and deploy preview
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: style-lab-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build all 49 routes
+        run: npm run build
+      - name: Check assets and syntax
+        run: npm run check
+      - name: Test real HTTP APIs, SQLite, and style routes
+        run: npm test
+      - name: Confirm generated artifacts are current
+        run: git diff --exit-code -- public/demos public/assets/catalog.json public/assets/palettes.css
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - name: Deploy read-only frontend preview
+        id: deployment
+        uses: actions/deploy-pages@v5

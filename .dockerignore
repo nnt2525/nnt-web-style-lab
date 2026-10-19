@@ -1,0 +1,7 @@
+.git
+.local
+artifacts
+node_modules
+tests
+*.sqlite*
+.env*
