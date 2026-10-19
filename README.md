@@ -9,7 +9,8 @@
 สไตล์ทั้ง 49 ใช้โครงหน้าและความสามารถร่วมกันตามประเภทแอป แล้วเปลี่ยนแบรนด์ สี ตัวอักษร พื้นผิว กรอบ และองค์ประกอบตกแต่ง จึงเป็นห้องทดลองเปรียบเทียบดีไซน์ **ไม่ใช่ระบบธุรกิจอิสระ 49 ระบบ** ชื่อแนวออกแบบบางชื่อทับซ้อนกันได้ และถูกตีความเพื่อการเรียนรู้ในโปรเจกต์นี้
 
 - [GitHub repository](https://github.com/nnt2525/nnt-web-style-lab)
-- Expected Pages preview: [nnt2525.github.io/nnt-web-style-lab](https://nnt2525.github.io/nnt-web-style-lab/) — deployment verification pending.
+- Live read-only preview: [nnt2525.github.io/nnt-web-style-lab](https://nnt2525.github.io/nnt-web-style-lab/)
+- [Build, tests and deployment](https://github.com/nnt2525/nnt-web-style-lab/actions/workflows/pages.yml) — 74 checks passed in the initial verified run.
 - [Architecture](docs/ARCHITECTURE.md) · [HTTP API](docs/API.md) · [คู่มือ 49 สไตล์](docs/STYLE_GUIDE_TH.md)
 - [Verification notes](docs/VERIFICATION.md)
 

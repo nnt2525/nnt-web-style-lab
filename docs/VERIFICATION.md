@@ -35,6 +35,12 @@ complete accessibility certification or cross-browser/device test suite.
 
 ## Deployment boundaries
 
+The initial GitHub Actions run passed all checks and deployed successfully:
+[verified run](https://github.com/nnt2525/nnt-web-style-lab/actions/runs/39217918975).
+The public gallery and a task-workspace route were then opened in the browser.
+The route displayed its read-only status, loaded fixtures, and rejected a write
+with the documented requirement to run the real backend.
+
 GitHub Pages publishes the frontend and read-only catalog fixtures. A Pages
 preview does not run Node or SQLite. Writes display a clear backend requirement;
 the canvas controls, article reader and lesson reader remain usable locally in
